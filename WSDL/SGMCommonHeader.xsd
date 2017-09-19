@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1">
+
+	<element name="SGMCommonHeader" type="tns:SGMCommonHeaderType"></element>
+
+	<complexType name="SGMCommonHeaderType">
+		<sequence>
+			<element name="MessageId" type="string" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="From" type="string" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="To" type="string" maxOccurs="1" minOccurs="1">
+			</element>
+			<element name="Timestamp" type="dateTime" minOccurs="1"
+				maxOccurs="1">
+			</element>
+			<element name="SLATimeout" type="int" minOccurs="0"
+				maxOccurs="1"></element>
+			<element name="LoggingSeverity" type="int" minOccurs="0"
+				maxOccurs="1"></element>
+			<element name="Cache" type="tns:CachePolicyType" minOccurs="0"
+				maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="CachePolicyType">
+		<sequence>
+			<element name="CacheOnly" type="boolean" minOccurs="0" maxOccurs="1"></element>
+			<element name="UsingCache" type="boolean" minOccurs="0" maxOccurs="1"></element>
+			<element name="Entry" type="dateTime" minOccurs="0" maxOccurs="1"></element>
+			<element name="Expire" type="dateTime" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+</schema>

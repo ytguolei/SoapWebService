@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema
+	targetNamespace="http://www.saic-gm.com/esb/schemas/common/SGMError/v1"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.saic-gm.com/esb/schemas/common/SGMError/v1" xmlns:pref="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1">
+
+	<import schemaLocation="SGMCommonHeader.xsd" namespace="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1"></import>
+	<element name="SGMError" type="tns:SGMErrorType"></element>
+
+	<complexType name="SGMErrorType">
+		<sequence>
+			<element ref="pref:SGMCommonHeader" minOccurs="0" maxOccurs="1"></element>
+			<element name="ErrorCode" type="string" minOccurs="1" maxOccurs="1"></element>
+			<element name="ErrorMessage" type="string" minOccurs="0" maxOccurs="1"></element>
+			<element name="Timestamp" type="dateTime" minOccurs="1" maxOccurs="1"></element>
+			<element name="ErrorDetails" type="anyType" minOccurs="0" maxOccurs="1"></element>
+		</sequence>
+	</complexType>
+</schema>

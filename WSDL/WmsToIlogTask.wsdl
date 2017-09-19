@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.saic-gm.com/jq-wms/WmsToIlogTask/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="WmsToIlogTask" targetNamespace="http://www.saic-gm.com/jq-wms/WmsToIlogTask/" 
+xmlns:xsd1="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1" 
+xmlns:xsd2="http://www.saic-gm.com/esb/schemas/common/SGMError/v1">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.saic-gm.com/jq-wms/WmsToIlogTask/"
+    	xmlns:pref="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1" xmlns:pref1="http://www.saic-gm.com/esb/schemas/common/SGMError/v1">
+    	<xsd:import schemaLocation="SGMCommonHeader.xsd"
+    		namespace="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1">
+    	</xsd:import>
+    	<xsd:import schemaLocation="SGMError.xsd" namespace="http://www.saic-gm.com/esb/schemas/common/SGMError/v1"></xsd:import>
+    	<xsd:element name="WTOIOperation">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="TaskInfo" maxOccurs="unbounded"  type="tns:TaskInfo" />
+    				
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    	<xsd:element name="WTOIOperationResponse">
+    		<xsd:complexType>
+    			<xsd:sequence>
+    				<xsd:element name="TaskResult" maxOccurs="unbounded" type="tns:TaskResult" />
+    			</xsd:sequence>
+    		</xsd:complexType>
+    	</xsd:element>
+    
+    	<xsd:complexType name="TaskInfo">
+    		<xsd:sequence>
+    			<xsd:element name="TaskNo" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="PlantId" minOccurs="1" maxOccurs="1" type="xsd:string"></xsd:element>
+    			<xsd:element name="WarehouseId" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="MoveType" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="TaskBiztype" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="PlanNo" minOccurs="0" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="AllOpenMarker" minOccurs="0" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="PlanDate" minOccurs="0" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="TaskItem" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="HuId" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="ExternalNo" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="PartId" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="Qty" minOccurs="1" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="Section" minOccurs="0" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="UrgentMarker" minOccurs="0" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    	
+    
+    	<xsd:complexType name="TaskResult">
+    		<xsd:sequence>
+    			<xsd:element name="WarehouseId" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="PlantId" maxOccurs="1" type="xsd:string"></xsd:element>
+    			<xsd:element name="RequestNo" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="TaskType" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="Status" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    			<xsd:element name="Remark" maxOccurs="1"
+    				type="xsd:string">
+    			</xsd:element>
+    		</xsd:sequence>
+    	</xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    	<xsd:import
+    		namespace="http://www.saic-gm.com/esb/schemas/common/SGMCommonHeader/v1"
+    		schemaLocation="SGMCommonHeader.xsd">
+    	</xsd:import>
+    	<xsd:import
+    		namespace="http://www.saic-gm.com/esb/schemas/common/SGMError/v1"
+    		schemaLocation="SGMError.xsd">
+    	</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="WTOIOperationRequest">
+    <wsdl:part element="tns:WTOIOperation" name="body"/>
+    <wsdl:part name="SGMCommonHeader" element="xsd1:SGMCommonHeader"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="WTOIOperationResponse">
+    <wsdl:part element="tns:WTOIOperationResponse" name="body"/>
+    <wsdl:part name="SGMCommonHeader" element="xsd1:SGMCommonHeader"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SGMError">
+  	<wsdl:part name="SGMError" element="xsd2:SGMError"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WmsToIlogTask">
+    <wsdl:operation name="WTOIOperation">
+      <wsdl:input message="tns:WTOIOperationRequest"/>
+      <wsdl:output message="tns:WTOIOperationResponse"/>
+      <wsdl:fault name="fault" message="tns:SGMError"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WmsToIlogTaskSOAP" type="tns:WmsToIlogTask">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WTOIOperation">
+      <soap:operation soapAction="http://www.saic-gm.com/jq-wms/WmsToIlogTask/WTOIOperation"/>
+      <wsdl:input>
+      <soap:header use="literal" part="SGMCommonHeader" message="tns:WTOIOperationRequest"></soap:header>
+        <soap:body use="literal" parts="body"/>
+      </wsdl:input>
+      <wsdl:output>
+      <soap:header use="literal" part="SGMCommonHeader" message="tns:WTOIOperationResponse"></soap:header>
+        <soap:body use="literal" parts="body"/>
+      </wsdl:output>
+      <wsdl:fault name="fault">
+      	<soap:fault name="fault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WmsToIlogTask">
+    <wsdl:port binding="tns:WmsToIlogTaskSOAP" name="WmsToIlogTaskSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
